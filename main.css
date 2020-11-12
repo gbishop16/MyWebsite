@@ -1,0 +1,30 @@
+<!DOCTYPE css>
+<css>
+h1 {
+  color: blue;
+}
+<style>
+  body {
+    padding-bottom: 10px;
+    width: 800px;
+    margin: 0px auto;
+    max-height: 90%;
+    background-color: cornsilk;
+
+
+  }
+
+  #start {
+    font-size: 2em;
+    font-family: serif;
+    color: powderblue;
+  }
+  #heading{
+    font-size: 5em;
+    font-family Arial;
+    color: 3399FF;
+  }
+
+
+</style>
+</css>
