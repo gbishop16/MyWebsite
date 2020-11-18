@@ -1,5 +1,4 @@
-<!DOCTYPE css>
-<css>
+
 h1 {
   color: blue;
 }
@@ -18,13 +17,13 @@ h1 {
     font-size: 2em;
     font-family: serif;
     color: powderblue;
+    text-align:center ;
   }
   #heading{
-    font-size: 5em;
-    font-family: cursive;
-    color: 3399FF;
+    font-size: 3em;
+    font-family: times-new-roman;
+    color: 3399;
   }
 
 
 </style>
-</css>
