@@ -16,7 +16,7 @@ h1 {
   #start {
     font-size: 2em;
     font-family: serif;
-    color: powderblue;
+    color: black;
     text-align:center ;
   }
   #heading{
@@ -24,6 +24,7 @@ h1 {
     font-family: times-new-roman;
     color: 3399;
   }
+
 
 
 </style>
