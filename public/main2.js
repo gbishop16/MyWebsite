@@ -10,11 +10,17 @@ function loadContent(){
 function loadGameContent(result){
   $('#game_content').html(result);
 }
+if(document.getElementById("open_game"))
+{
 document.getElementById("open_game").onclick = function (){
   $.ajax({url: "game.html", success: loadGameContent});
 }
+}
+if(document.getElementById("open_game"))
+{
 document.getElementById("rick_roll").onclick = function (){
   location.href = "https://www.youtube.com/watch?v=YddwkMJG1Jo";
+}
 }
 document.getElementById("game_page").onclick = function (){
   location.href = "game.html";
