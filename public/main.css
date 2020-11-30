@@ -1,0 +1,73 @@
+
+h1 {
+  color: blue;
+  font-family: 'Signika', sans-serif;
+}
+
+h2 {
+  text-align: center;
+  font-size: 6em;
+  font-family: 'Signika', sans-serif;
+  color: CadetBlue;
+}
+
+button{
+  text-align: center;
+
+}
+
+div.c{
+  text-align: center;
+}
+
+p1{
+  font-family: 'Signika', sans-serif;
+    float: left;
+    font-size: 4em;
+    color: darkslategray;
+}
+
+p{
+  font-family: 'Signika', sans-serif;
+  color: darkslategray;
+  font-size: 2em;
+}
+
+div.b {
+  float: right;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+  body {
+    padding-bottom: 10px;
+    width: 80%;
+    margin: 0px auto;
+    max-height: 90%;
+    background-color: cornsilk;
+    font-family: 'Signika', sans-serif;
+  }
+
+
+  #heading{
+    font-size: 6em;
+    font-family: 'Signika', sans-serif;
+    color: CadetBlue;
+  }
+
+{box-sizing:border-box}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
+}
