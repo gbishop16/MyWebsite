@@ -1,10 +1,10 @@
 function loadBlogJSONAsHTML(result) {
-  var aString = "";
+  var article = "";
   for (var i = 0; i < result.length; i++) {
     var nextResult = result[i];
-    aString += "<h2>" + nextResult['type'] + "</h2>";
+    article += "<h2>" + nextResult['headline'] + "</h2>" + "<p>" + nextResult['body']+"</p>";
   }
-  $("#list_blogs").html(aString);
+  $("#list_blogs").html(article);
 }
 function requestBlogData() {
   $.ajax({
@@ -13,4 +13,6 @@ function requestBlogData() {
     success : loadBlogJSONAsHTML,
   });
 }
-requestBlogData();
+$("#blog_list_button").click(function() {
+  requestBlogData();
+})
