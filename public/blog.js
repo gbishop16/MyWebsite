@@ -9,7 +9,7 @@ function loadBlogJSONAsHTML(result) {
 function requestBlogData() {
   $.ajax({
     dataType: "json",
-    url: "https://firebasestorage.googleapis.com/v0/b/mywebsite-196fb.appspot.com/o/blogArticles.json?alt=media&token=5524bd20-afa6-4f6a-9899-bf0d7f4e9405",
+    url: "https://firebasestorage.googleapis.com/v0/b/advancedtopicscs.appspot.com/o/blogArticles.json?alt=media&token=478d06a6-d7e5-4cac-a92d-7670dea8de17",
     success : loadBlogJSONAsHTML,
   });
 }
