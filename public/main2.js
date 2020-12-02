@@ -25,7 +25,7 @@ document.getElementById("rick_roll").onclick = function (){
 }
 if(document.getElementById("json_page")){
 document.getElementById("json_page").onclick = function (){
-  location.href = "page2.html";
+  location.href = "blog.html";
 }
 }
 if(document.getElementById("github_link")){
