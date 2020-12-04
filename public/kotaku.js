@@ -54,7 +54,7 @@ function loadKotakuRss(result)
 
   var kotakuArticle = "<ul>";
   for (var i = 0; i < amount; i++) {
-    kotakuArticle += '<li>'+'<a href=' + items[i]['link'] + '>'+ items[i]['title']+'</a> </li>';
+    kotakuArticle += '<li>'+'<a href=' + items[i]['link'] + '>'+ items[i]['title']+'</a> </li>' +'</a>';//+'<img src="' + items[i]['description']['img']['@attributes']['src'] + '"style="max-width:100%;max-height:100%;" alt ="RSS picture"  >';
   }
   kotakuArticle+="</ul>";
   // Set the HTML
