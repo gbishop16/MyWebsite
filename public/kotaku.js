@@ -1,32 +1,76 @@
-function loadKotakuRss(result) {
+function xmlToJson(xml) {
+  // Create the return object
+  var obj = {};
+
+  if (xml.nodeType == 1) {
+    // element
+    // do attributes
+    if (xml.attributes.length > 0) {
+      obj["@attributes"] = {};
+      for (var j = 0; j < xml.attributes.length; j++) {
+        var attribute = xml.attributes.item(j);
+        obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+      }
+    }
+  } else if (xml.nodeType == 3) {
+    // text
+    obj = xml.nodeValue;
+  }
+
+  // do children
+  // If all text nodes inside, get concatenated text from them.
+  var textNodes = [].slice.call(xml.childNodes).filter(function(node) {
+    return node.nodeType === 3;
+  });
+  if (xml.hasChildNodes() && xml.childNodes.length === textNodes.length) {
+    obj = [].slice.call(xml.childNodes).reduce(function(text, node) {
+      return text + node.nodeValue;
+    }, "");
+  } else if (xml.hasChildNodes()) {
+    for (var i = 0; i < xml.childNodes.length; i++) {
+      var item = xml.childNodes.item(i);
+      var nodeName = item.nodeName;
+      if (typeof obj[nodeName] == "undefined") {
+        obj[nodeName] = xmlToJson(item);
+      } else {
+        if (typeof obj[nodeName].push == "undefined") {
+          var old = obj[nodeName];
+          obj[nodeName] = [];
+          obj[nodeName].push(old);
+        }
+        obj[nodeName].push(xmlToJson(item));
+      }
+    }
+  }
+  return obj;
+}
+
+function loadKotakuRss(result)
+{
   result = xmlToJson(result);
   var items = result['rss']['channel']['item'];
 
-  var rand = Math.round(Math.random() * 1000000) % 50;
+  var amount = 5;
 
-  var kotakuPic = "";
-  for (var i = 0; i < items.length; i++) {
-    if (rand == i) {
-      kotakuPic += '<img src="' + items[i]['enclosure']['@attributes']['url'] + '"style="max-width:100%;max-height:100%;" alt="Wow, RSS Feeds are AMAZING!" >';
-    }
+  var kotakuArticle = "<ul>";
+  for (var i = 0; i < amount; i++) {
+    kotakuArticle += '<li>'+'<a href=' + items[i]['link'] + '>'+ items[i]['title']+'</a> </li>';
   }
+  kotakuArticle+="</ul>";
   // Set the HTML
-  $("#kotaku_enabler").html(kotakuPic);
+  $("#kotaku_content").html(kotakuArticle);
 }
 
-function requestNasaRss() {
-  // Load chocolates JSON
+function requestKotakuRss() {
+
   $.ajax({
     dataType: "xml",
-    url: "http://kotaku.com/tag/kotakucore/rss",
+    url: "https://cors-anywhere.herokuapp.com/https://kotaku.com/tag/kotakucore/rss",
     success : loadKotakuRss
   });
 }
 
-function requestRSSFeeds() {
-  requestKotakuRss();
-}
 
-$("#kotaku_button").click(function() {
-  requestRSSFeeds();
-})
+$("#kotaku_feed").click(function() {
+requestKotakuRss();
+});

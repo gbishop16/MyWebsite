@@ -1,3 +1,10 @@
+var cookie = document.cookie;
+if(!cookie){
+  cookie = 1;
+}
+cookie++;
+document.cookie = cookie;
+
 function unloadContent(){
   $("#main_container").html('');
 }
