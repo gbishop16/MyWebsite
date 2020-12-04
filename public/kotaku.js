@@ -1,5 +1,32 @@
-<script language="JavaScript" src="http://feedroll.com/rssviewer/feed2js.php?src=https%3A%2F%2Fkotaku.com%2Ftag%2Fkotakucore%2Frss&chan=title&num=5&au=y&date=y&utf=y&html=a" charset="UTF-8" type="text/javascript"></script>
+function loadKotakuRss(result) {
+  result = xmlToJson(result);
+  var items = result['rss']['channel']['item'];
 
-<noscript>
-  <a href="http://feedroll.com/rssviewer/feed2js.php?src=https%3A%2F%2Fkotaku.com%2Ftag%2Fkotakucore%2Frss&chan=title&num=5&au=y&date=y&utf=y&html=y">View RSS feed</a>
-</noscript>
+  var rand = Math.round(Math.random() * 1000000) % 50;
+
+  var kotakuPic = "";
+  for (var i = 0; i < items.length; i++) {
+    if (rand == i) {
+      kotakuPic += '<img src="' + items[i]['enclosure']['@attributes']['url'] + '"style="max-width:100%;max-height:100%;" alt="Wow, RSS Feeds are AMAZING!" >';
+    }
+  }
+  // Set the HTML
+  $("#kotaku_enabler").html(kotakuPic);
+}
+
+function requestNasaRss() {
+  // Load chocolates JSON
+  $.ajax({
+    dataType: "xml",
+    url: "http://kotaku.com/tag/kotakucore/rss",
+    success : loadKotakuRss
+  });
+}
+
+function requestRSSFeeds() {
+  requestKotakuRss();
+}
+
+$("#kotaku_button").click(function() {
+  requestRSSFeeds();
+})
