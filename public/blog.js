@@ -2,7 +2,7 @@ function loadBlogJSONAsHTML(result) {
   var article = "";
   for (var i = 0; i < result.length; i++) {
     var nextResult = result[i];
-    article += "<h2>" + nextResult['headline'] + "</h2>" + "<p>" + nextResult['body']+"</p>";
+    article += "<h2>" + nextResult['headline'] + "</h2>" + "<p>by " + nextResult['author'] + "</p>" + "<p>" + nextResult['body']+"</p>";
   }
   $("#list_blogs").html(article);
 }

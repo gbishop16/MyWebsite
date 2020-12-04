@@ -48,3 +48,8 @@ document.getElementById("tech_spec").onclick = function (){
   location.href = "https://docs.google.com/document/d/11KRt5S18rvGJxmNQHIDBENf6uVg6nR6VkC93a2m3XCg/edit";
 }
 }
+if(document.getElementById("kotaku_button")){
+document.getElementById("kotaku_button").onclick = function (){
+  location.href = "kotaku.html";
+}
+}
