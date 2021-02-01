@@ -1,3 +1,4 @@
+
 var cookie = document.cookie;
 if(!cookie){
   cookie = 1;
