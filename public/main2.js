@@ -28,7 +28,7 @@ document.getElementById("open_game").onclick = function (){
 }
 if(document.getElementById("rick_roll")){
 document.getElementById("rick_roll").onclick = function (){
-  location.href = "https://www.youtube.com/watch?v=YddwkMJG1Jo";
+  location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 }
 }
 if(document.getElementById("json_page")){
